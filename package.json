@@ -1,0 +1,33 @@
+{
+  "name": "node-mail-stripper",
+  "version": "0.1.0",
+  "description": "strip sigatures and previous emails from emails",
+  "main": "node-mail-stripper.js",
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script/register --timeout 10000 --reporter Spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/saintmac/node-mail-stripper.git"
+  },
+  "keywords": [
+    "mail",
+    "stripper",
+    "signature",
+    "strip",
+    "remove"
+  ],
+  "author": "Martin Saint-Macary (martin.saintmac@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saintmac/node-mail-stripper/issues"
+  },
+  "homepage": "https://github.com/saintmac/node-mail-stripper",
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2"
+  },
+  "dependencies": {
+    "coffee-script": "~1.7.1"
+  }
+}
