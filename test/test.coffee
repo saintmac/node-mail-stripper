@@ -54,6 +54,14 @@ describe 'MailStripper', ->
       message.should.eql(target)
       done()
 
+  describe 'with a previous email (from gmail)', ->
+    it 'should strip it!', (done) ->
+      mail = "And now?\n\nLe mercredi 14 mai 2014, Martin Saint-Macary <martin.saintmac@gmail.com> a\nécrit :"
+      target = "And now?"
+      message = @stripper.parse(mail)
+      message.should.eql(target)
+      done()
+
   describe 'with a previous email (from Mailbox)', ->
     it 'should strip it!', (done) ->
       mail = "Salut ça va?Oui oui\r\n—\r\nSent from Mailbox"

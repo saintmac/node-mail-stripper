@@ -1,6 +1,6 @@
 {
   "name": "mail-stripper",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "strip sigatures and previous emails from emails",
   "main": "mail-stripper.js",
   "scripts": {

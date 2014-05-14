@@ -10,7 +10,7 @@
       }
     }
 
-    MailStripper.prototype.patterns = [/^\s*--/, /\d{4}-\d{2}-\d{2} \d{2}:\d{2} GMT\+\d{2}:\d{2}/, /^—/];
+    MailStripper.prototype.patterns = [/^\s*--/, /\d{4}-\d{2}-\d{2} \d{2}:\d{2} GMT\+\d{2}:\d{2}/, /^—/, /<[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,8}>/i];
 
     MailStripper.prototype.lineShouldBeStripped = function(line) {
       var pattern, _i, _len, _ref;
