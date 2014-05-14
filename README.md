@@ -33,7 +33,7 @@ If you find yourself adding rules that could be relevant to other projects, plea
 `npm test`
 
 ## build
-`coffee -c src/mail-stripper.coffee`
+`coffee -c -o . src/mail-stripper.coffee`
 
 
 
