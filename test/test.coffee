@@ -1,5 +1,5 @@
 should = require('chai').should()
-MailStripper = require('./../mail-stripper')
+MailStripper = require('./../src/mail-stripper')
 
 describe 'MailStripper', ->
   before (done) ->
