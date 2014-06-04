@@ -24,13 +24,22 @@
       return false;
     };
 
-    MailStripper.prototype.parse = function(body) {
+    MailStripper.prototype.lineContainsName = function(line, name) {
+      var name_re;
+      name_re = new RegExp("^\\s*" + name + "\\s*$", 'i');
+      return name_re.test(line);
+    };
+
+    MailStripper.prototype.parse = function(body, name) {
       var line, lines, message_lines, type, _i, _len;
       lines = body.replace(/\r\n/g, '\n').split('\n');
       message_lines = [];
       for (_i = 0, _len = lines.length; _i < _len; _i++) {
         line = lines[_i];
         type = this.lineShouldBeStripped(line);
+        if (name) {
+          type = type || this.lineContainsName(line, name);
+        }
         if (!type) {
           message_lines.push(line);
         } else {

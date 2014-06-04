@@ -26,6 +26,14 @@ The output message will contain all the lines before that first 'signature' line
     message = stripper.parse(mail);
 ```
 
+## advanced signature parsing
+If your provide the name of the sender of the message, MailStripper will detect a line containing only that name and spaces as a signature.
+```javascript
+    stripper = new MailStripper();
+    message = stripper.parse(mail, 'martin saint-macary');
+```
+
+
 # contribute
 If you find yourself adding rules that could be relevant to other projects, please add them directly to the source and send me a pull request or just create an issue and I'll add them myself
 
