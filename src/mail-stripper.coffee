@@ -16,11 +16,16 @@ class MailStripper
         return true
     false
 
-  parse: (body) ->
+  lineContainsName: (line, name) ->
+    name_re = new RegExp("^\\s*#{name}\\s*$", 'i')
+    name_re.test(line)
+
+  parse: (body, name) ->
     lines = body.replace(/\r\n/g, '\n').split('\n')
     message_lines = []
     for line in lines
       type = @lineShouldBeStripped(line)
+      type = type or @lineContainsName(line, name) if name
       if not type
         message_lines.push(line)
       else

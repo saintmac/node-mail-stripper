@@ -70,7 +70,22 @@ describe 'MailStripper', ->
       message.should.eql(target)
       done()
 
+  describe 'with an  awkward signature', ->
+    it 'should strip it!', (done) ->
+      mail = "john.appleseed\n\n\n\n\nJOHN APPLESEED\nwww.apple.com\n\nCe message électronique et toutes les pièces jointes qu'il contient sont\nconfidentiels et destinés exclusivement à l'usage de la personne à laquelle\nils sont adresses. Si vous avez reçu ce message par erreur, merci de le\nretourner à son émetteur. Les idées et opinions présentées dans ce message\nsont celles de son auteur, et ne représentent pas nécessairement celles de\nl'institution dont l'auteur est l'employé. La publication, l'usage, la\ndistribution, l'impression ou la copie non autorisée de ce message et des\npièces jointes qu'il contient sont strictement interdits.\n\n\nThis email and any files transmitted with it are confidential and intended\nsolely for the use of the individual or entity to whom they are addressed.\nIf you have received this email in error please return it to the sender.\nThe ideas and views expressed in this email are solely those of its author,\nand do not necessarily represent the views of the institution or company of\nwhich the author is an employee. Unauthorized publication, use,\ndistribution, printing or copying of this e-mail or any attached files is\nstrictly forbidden."
+      target = "john.appleseed"
+      name = "John Appleseed"
+      message = @stripper.parse(mail, name)
+      message.should.eql(target)
+      done()
 
+  describe 'with a message containing the name', ->
+    it 'should not strip it', (done) ->
+      mail = "Hi, my name is john appleseed.\nHow are you doing?"
+      name = "John Appleseed"
+      message = @stripper.parse(mail, name)
+      message.should.eql(mail)
+      done()
 
 
 
